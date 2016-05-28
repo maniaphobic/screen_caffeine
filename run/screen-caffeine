@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'screen-caffeine/app'
+
+ScreenCaffeine::App.new.run
