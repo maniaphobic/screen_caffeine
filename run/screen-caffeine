@@ -2,4 +2,7 @@
 
 require 'screen-caffeine/app'
 
-ScreenCaffeine::App.new.run
+options = {
+  'interval' => 2
+}
+ScreenCaffeine::App.new.run(options)

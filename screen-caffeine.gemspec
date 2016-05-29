@@ -1,13 +1,18 @@
 Gem::Specification.new do |s|
-  s.name        = 'screen-caffeine'
-  s.version     = '0.1.0'
-  s.licenses    = ['MIT']
-  s.summary     = "This is an example!"
-  s.description = "Much longer explanation of the example!"
-  s.authors     = ["Ruby Coder"]
-  s.email       = 'rubycoder@example.com'
-  s.files       = Dir.glob("lib/screen-caffeine/*.rb")
-  s.homepage    = 'https://rubygems.org/gems/example'
+  s.authors     = ['mANIApHOBIC']
   s.bindir      = 'run'
+  s.description = <<-EOF
+Debian-based Linux distributions possess no facility to disable the
+screensaver while watching video. This gem uses the "xte" command from
+the "xautomation" Debian package to move the mouse one pixel per
+minute, which resets the screensaver's timer and prevents it from activating.
+  EOF
+  s.email       = 'git@maniaphobic.org'
   s.executables << 'screen-caffeine'
+  s.files       = Dir.glob("lib/screen-caffeine/*.rb")
+  s.homepage    = 'https://animalaidpdx.org'
+  s.licenses    = ['MIT']
+  s.name        = 'screen-caffeine'
+  s.summary     = 'Reset the Linux screensaver timeout while watching video'
+  s.version     = '0.1.3'
 end
