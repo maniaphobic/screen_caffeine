@@ -1,14 +1,23 @@
-require 'screen-caffeine/processes'
+require 'screen_caffeine/processes'
 
+#
 module ScreenCaffeine
+  #
   class App
-    def default_interval
-      60
+    def initialize(options = {})
+      @options = defaults.merge(options)
+    end
+
+    def defaults
+      {
+        'interval'    => 60,
+        'mouse_mover' => 'xte \'mousermove 1 1\''
+      }
     end
 
     def move_mouse
       begin
-        `xte 'mousermove 1 1'`
+        `#{@options['mouse_mover']}`
       rescue Errno::ENOENT
         raise(<<-EOF
 Please install xte. Debian-based distributions package it as "xautomation".'
@@ -17,11 +26,11 @@ Please install xte. Debian-based distributions package it as "xautomation".'
       end
     end
 
-    def run(options = {})
-      while true
+    def run
+      while video_playing?
         move_mouse
-        sleep(options.fetch('interval', default_interval))
-      end if video_playing?
+        sleep(@options['interval'])
+      end
     end
 
     def video_playing?

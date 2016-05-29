@@ -8,11 +8,11 @@ the "xautomation" Debian package to move the mouse one pixel per
 minute, which resets the screensaver's timer and prevents it from activating.
   EOF
   s.email       = 'git@maniaphobic.org'
-  s.executables << 'screen-caffeine'
-  s.files       = Dir.glob("lib/screen-caffeine/*.rb")
+  s.executables << 'screen_caffeine'
+  s.files       = Dir.glob('lib/screen_caffeine/*.rb')
   s.homepage    = 'https://animalaidpdx.org'
   s.licenses    = ['MIT']
-  s.name        = 'screen-caffeine'
+  s.name        = 'screen_caffeine'
   s.summary     = 'Reset the Linux screensaver timeout while watching video'
-  s.version     = '0.1.3'
+  s.version     = '0.1.4'
 end

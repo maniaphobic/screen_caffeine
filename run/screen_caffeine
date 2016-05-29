@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'screen-caffeine/app'
+require 'screen_caffeine/app'
 
-options = {
-  'interval' => 60
-}
-ScreenCaffeine::App.new.run(options)
+ScreenCaffeine::App.new('interval' => 240).run
