@@ -3,6 +3,6 @@
 require 'screen-caffeine/app'
 
 options = {
-  'interval' => 2
+  'interval' => 60
 }
 ScreenCaffeine::App.new.run(options)
