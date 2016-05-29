@@ -8,20 +8,18 @@ module ScreenCaffeine
     end
 
     def filter(conditions)
-      processes if @list.empty?
+      @list = processes if @list.empty?
       @list.select { |p| p =~ conditions }
     end
 
-    def isolate_commands(raw_list)
-      raw_list.map { |p| p.squeeze(' ').split(' ').drop(7).join(' ') }
-    end
-
     def processes
-      @list = isolate_commands(raw_processes)
-    end
-
-    def raw_processes
-      `ps -ef`.split("\n")
+      Dir.glob('/proc/[0-9]*/cmdline').map do |cmdline|
+        begin
+          IO.read(cmdline)
+        rescue
+          ''
+        end
+      end
     end
   end
 end

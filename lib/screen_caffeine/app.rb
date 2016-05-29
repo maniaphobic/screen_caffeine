@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'screen_caffeine/processes'
 
 #
@@ -6,6 +8,11 @@ module ScreenCaffeine
   class App
     def initialize(options = {})
       @options = defaults.merge(options)
+      @xte     = '/usr/bin/xte'
+      raise(<<-EOF
+Please install xte. Debian-based distributions package it as "xautomation".'
+            EOF
+           ) unless File.exist?(@xte)
     end
 
     def defaults
@@ -16,14 +23,7 @@ module ScreenCaffeine
     end
 
     def move_mouse
-      begin
-        `#{@options['mouse_mover']}`
-      rescue Errno::ENOENT
-        raise(<<-EOF
-Please install xte. Debian-based distributions package it as "xautomation".'
-            EOF
-             )
-      end
+      `#{@options['mouse_mover']}`
     end
 
     def run
