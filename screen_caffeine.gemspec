@@ -14,5 +14,5 @@ minute, which resets the screensaver's timer and prevents it from activating.
   s.licenses    = ['MIT']
   s.name        = 'screen_caffeine'
   s.summary     = 'Reset the Linux screensaver timeout while watching video'
-  s.version     = '0.1.4'
+  s.version     = '0.1.5'
 end
